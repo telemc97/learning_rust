@@ -1,4 +1,5 @@
-use rand::Rng;
+mod tools;
+
 struct Coordinates{
     latitute: i32,
     longtitude: i32,
@@ -22,18 +23,12 @@ fn main() {
 
     while i<100 {
 
-        vec[i].latitute = num*get_random_num();
-        vec[i].longtitude = num*get_random_num();
-        vec[i].alitute = num*get_random_num();
+        vec[i].latitute = num*tools::get_random_num();
+        vec[i].longtitude = num*tools::get_random_num();
+        vec[i].alitute = num*tools::get_random_num();
 
         println!("Latitute {}, Longtitude {}, Altitude {}", vec[i].latitute, vec[i].longtitude, vec[i].alitute);
         num+=1;
         i+=1;
     }
-}
-
-
-fn get_random_num()-> i32{
-    let number = rand::thread_rng().gen_range(0..101);
-    return  number;
 }
